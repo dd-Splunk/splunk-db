@@ -1,5 +1,6 @@
 import csv  
 import random
+import datetime
 
 # Read DCs names
 with open("./data/dc.csv") as file:
@@ -16,6 +17,7 @@ svcs = list(filter(None, svcs)) # remove empty strings
 # Genberate Data for DC services failure
 for i in range (100):
     if random.randrange(100) >= 95: 
+        now = datetime.datetime.now()
         dc = random.choice(dcs)
         svc = random.choice(svcs)
-        print(dc, svc)
+        print(f'{now} host={dc}, service={svc}')
