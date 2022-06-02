@@ -1,0 +1,40 @@
+---
+name: "package-app"
+
+on:
+  push:
+    tags:
+      - "v*"
+
+jobs:
+  tagged-release:
+    name: "Package App"
+    runs-on: "ubuntu-latest"
+
+    steps:
+      # ...
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Get version from tag
+        id: vars
+        run: echo ::set-output name=tag::${GITHUB_REF#refs/*/v}
+      - name: Set Splunk app version
+        env:
+          RELEASE_VERSION: ${{ steps.vars.outputs.tag }}
+        run: |
+          echo $RELEASE_VERSION
+          sed -i -e "s/version =.*/version = $RELEASE_VERSION/" app/default/app.conf
+      - name: Create spl
+        run: |
+          mv app ${APP_NAME}
+          COPYFILE_DISABLE=1 tar -cvzf ${APP_NAME}.spl ${APP_NAME}
+        env:
+          APP_NAME: ${{ github.event.repository.name }}
+      - name: Release spl
+        uses: "marvinpinto/action-automatic-releases@latest"
+        with:
+          repo_token: "${{ secrets.GITHUB_TOKEN }}"
+          automatic_release_tag: "latest"
+          prerelease: false
+          files: |
+            *.spl
