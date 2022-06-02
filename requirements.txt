@@ -1,2 +1,4 @@
 csv
+csvkit
+pre-commit
 random
