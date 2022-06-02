@@ -38,3 +38,24 @@ export = none
 owner = admin
 version = 8.2.5
 modtime = 1654159421.806956000
+
+[views/mail_traffic]
+access = read : [ * ], write : [ admin, power ]
+export = none
+owner = admin
+version = 8.2.5
+modtime = 1654167989.668767000
+
+[lookups/send-receive.csv]
+access = read : [ * ], write : [ admin ]
+export = none
+owner = admin
+version = 8.2.5
+modtime = 1654168117.735229000
+
+[lookups/users.csv]
+access = read : [ * ], write : [ admin ]
+export = none
+owner = admin
+version = 8.2.5
+modtime = 1654168336.129465000

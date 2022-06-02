@@ -1,0 +1,41 @@
+<dashboard>
+  <label>Mail Traffic</label>
+  <row>
+    <panel>
+      <title>Top 10 Senders</title>
+      <table>
+        <search>
+          <query>| inputlookup send-receive.csv | stats sum(bytes) AS Traffic by sender| sort -Traffic | head 10</query>
+          <earliest>-24h@h</earliest>
+          <latest>now</latest>
+          <sampleRatio>1</sampleRatio>
+        </search>
+        <option name="count">20</option>
+        <option name="dataOverlayMode">none</option>
+        <option name="drilldown">none</option>
+        <option name="percentagesRow">false</option>
+        <option name="rowNumbers">false</option>
+        <option name="totalsRow">false</option>
+        <option name="wrap">true</option>
+      </table>
+    </panel>
+    <panel>
+      <title>Top 10 Receivers</title>
+      <table>
+        <search>
+          <query>| inputlookup send-receive.csv | stats sum(bytes) AS Traffic by receiver| sort -Traffic | head 10</query>
+          <earliest>-24h@h</earliest>
+          <latest>now</latest>
+          <sampleRatio>1</sampleRatio>
+        </search>
+        <option name="count">20</option>
+        <option name="dataOverlayMode">none</option>
+        <option name="drilldown">none</option>
+        <option name="percentagesRow">false</option>
+        <option name="rowNumbers">false</option>
+        <option name="totalsRow">false</option>
+        <option name="wrap">true</option>
+      </table>
+    </panel>
+  </row>
+</dashboard>
