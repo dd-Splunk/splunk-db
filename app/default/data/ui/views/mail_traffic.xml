@@ -2,8 +2,8 @@
   <label>Mail Traffic</label>
   <row>
     <panel>
-      <title>Top 10 Senders</title>
       <table>
+        <title>Top 10 Senders</title>
         <search>
           <query>| inputlookup send-receive.csv | stats sum(bytes) AS Traffic by sender| sort -Traffic | head 10</query>
           <earliest>-24h@h</earliest>
@@ -20,8 +20,8 @@
       </table>
     </panel>
     <panel>
-      <title>Top 10 Receivers</title>
       <table>
+        <title>Top 10 Receivers</title>
         <search>
           <query>| inputlookup send-receive.csv | stats sum(bytes) AS Traffic by receiver| sort -Traffic | head 10</query>
           <earliest>-24h@h</earliest>
