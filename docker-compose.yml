@@ -6,7 +6,7 @@ services:
     container_name: so1
     environment:
       - SPLUNK_START_ARGS=--accept-license
-      - SPLUNK_APPS_URL=https://splunkbase.splunk.com/app/2686/release/3.9.0/download,https://splunkbase.splunk.com/app/6154/release/1.1.0/download,https://splunkbase.splunk.com/app/6150/release/1.1.0/download,https://splunkbase.splunk.com/app/1603/release/8.2.5/download,https://splunkbase.splunk.com/app/3129/release/1.5.0/download
+      - SPLUNK_APPS_URL=https://github.com/dd-Splunk/splunk-db/releases/download/latest/splunk-db.spl,https://splunkbase.splunk.com/app/2686/release/3.9.0/download,https://splunkbase.splunk.com/app/6154/release/1.1.0/download,https://splunkbase.splunk.com/app/6150/release/1.1.0/download,https://splunkbase.splunk.com/app/1603/release/8.2.5/download,https://splunkbase.splunk.com/app/3129/release/1.5.0/download
       - SPLUNKBASE_USERNAME
       - SPLUNKBASE_PASSWORD
       - SPLUNK_PASSWORD
