@@ -26,3 +26,15 @@ export = none
 owner = admin
 version = 8.2.5
 modtime = 1654157608.374273000
+
+[views/databases__queues]
+owner = admin
+version = 8.2.5
+modtime = 1654160882.807956000
+
+[lookups/dc-svc.csv]
+access = read : [ * ], write : [ admin ]
+export = none
+owner = admin
+version = 8.2.5
+modtime = 1654159421.806956000
