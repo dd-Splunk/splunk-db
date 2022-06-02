@@ -53,5 +53,3 @@ volumes:
   so1-etc:
   ms-data:
   my-db:
-
-    

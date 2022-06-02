@@ -1,5 +1,5 @@
 #!/bin/bash
-APP=${PWD##*/} 
+APP=${PWD##*/}
 APP_FILE=${APP}.spl
 APP_LOCATION=/opt/splunk/share/splunk/app_packages/${APP_FILE}
 source .env

@@ -5,3 +5,24 @@ modtime = 1654157055.951176000
 [app/launcher]
 version = 8.2.5
 modtime = 1654157055.952610000
+
+[lookups/dc.csv]
+access = read : [ * ], write : [ admin ]
+export = none
+owner = admin
+version = 8.2.5
+modtime = 1654157577.246399000
+
+[lookups/services.csv]
+access = read : [ * ], write : [ admin ]
+export = none
+owner = admin
+version = 8.2.5
+modtime = 1654157587.446831000
+
+[lookups/webmail.csv]
+access = read : [ * ], write : [ admin ]
+export = none
+owner = admin
+version = 8.2.5
+modtime = 1654157608.374273000

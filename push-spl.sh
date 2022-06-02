@@ -1,5 +1,5 @@
 #!/bin/bash
-APP=${PWD##*/} 
+APP=${PWD##*/}
 APP_FILE=${APP}.spl
 APP_LOCATION=/tmp/${APP_FILE}
 source .env
@@ -14,6 +14,6 @@ curl -s -X POST -k -u admin:$SPLUNK_PASSWORD https://$SPLUNK_HOST:8089/services/
     -H 'Content-Type: application/x-www-form-urlencoded' \
     -d "name=${APP_LOCATION}&update=True&filename=True"
 echo "Restaritng"
-curl -s -X POST -k -u admin:$SPLUNK_PASSWORD https://$SPLUNK_HOST:8089/services/server/control/restart 
+curl -s -X POST -k -u admin:$SPLUNK_PASSWORD https://$SPLUNK_HOST:8089/services/server/control/restart
 echo "Done."
 #
