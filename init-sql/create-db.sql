@@ -1,6 +1,5 @@
 CREATE DATABASE splunkdb;
     USE splunkdb;
-
 CREATE TABLE `dc-svc` (
 	host VARCHAR(12) NOT NULL,
 	app VARCHAR(17) NOT NULL,
@@ -11,7 +10,6 @@ LOAD DATA INFILE '/app/lookups/dc-svc.csv' INTO TABLE `dc-svc`
     ENCLOSED BY '"'
     LINES TERMINATED BY '\\n'
     IGNORE 1 ROWS;
-
 CREATE TABLE dc (
 	dc_name VARCHAR(12) NOT NULL
 );
@@ -20,7 +18,6 @@ LOAD DATA INFILE '/app/lookups/dc.csv' INTO TABLE `dc`
     ENCLOSED BY '"'
     LINES TERMINATED BY '\\n'
     IGNORE 1 ROWS;
-
 CREATE TABLE `send-receive` (
 	sender VARCHAR(13) NOT NULL,
 	receiver VARCHAR(13) NOT NULL,
@@ -31,7 +28,6 @@ LOAD DATA INFILE '/app/lookups/send-receive.csv' INTO TABLE `send-receive`
     ENCLOSED BY '"'
     LINES TERMINATED BY '\\n'
     IGNORE 1 ROWS;
-
 CREATE TABLE services (
 	service_name VARCHAR(17) NOT NULL
 );
@@ -40,7 +36,6 @@ LOAD DATA INFILE '/app/lookups/services.csv' INTO TABLE `services`
     ENCLOSED BY '"'
     LINES TERMINATED BY '\\n'
     IGNORE 1 ROWS;
-
 CREATE TABLE users (
 	username VARCHAR(13) NOT NULL
 );
@@ -49,7 +44,6 @@ LOAD DATA INFILE '/app/lookups/users.csv' INTO TABLE `users`
     ENCLOSED BY '"'
     LINES TERMINATED BY '\\n'
     IGNORE 1 ROWS;
-
 CREATE TABLE webmail (
 	host VARCHAR(37) NOT NULL,
 	status VARCHAR(6) NOT NULL
