@@ -1,5 +1,5 @@
 CREATE DATABASE splunkdb;
-USE splunkdb;
+    USE splunkdb;
 
 CREATE TABLE `dc-svc` (
 	host VARCHAR(12) NOT NULL,
@@ -9,7 +9,7 @@ CREATE TABLE `dc-svc` (
 LOAD DATA INFILE '/app/lookups/dc-svc.csv' INTO TABLE `dc-svc`
     FIELDS TERMINATED BY ','
     ENCLOSED BY '"'
-    LINES TERMINATED BY '\n'
+    LINES TERMINATED BY '\\n'
     IGNORE 1 ROWS;
 
 CREATE TABLE dc (
@@ -18,7 +18,7 @@ CREATE TABLE dc (
 LOAD DATA INFILE '/app/lookups/dc.csv' INTO TABLE `dc`
     FIELDS TERMINATED BY ','
     ENCLOSED BY '"'
-    LINES TERMINATED BY '\n'
+    LINES TERMINATED BY '\\n'
     IGNORE 1 ROWS;
 
 CREATE TABLE `send-receive` (
@@ -29,7 +29,7 @@ CREATE TABLE `send-receive` (
 LOAD DATA INFILE '/app/lookups/send-receive.csv' INTO TABLE `send-receive`
     FIELDS TERMINATED BY ','
     ENCLOSED BY '"'
-    LINES TERMINATED BY '\n'
+    LINES TERMINATED BY '\\n'
     IGNORE 1 ROWS;
 
 CREATE TABLE services (
@@ -38,7 +38,7 @@ CREATE TABLE services (
 LOAD DATA INFILE '/app/lookups/services.csv' INTO TABLE `services`
     FIELDS TERMINATED BY ','
     ENCLOSED BY '"'
-    LINES TERMINATED BY '\n'
+    LINES TERMINATED BY '\\n'
     IGNORE 1 ROWS;
 
 CREATE TABLE users (
@@ -47,7 +47,7 @@ CREATE TABLE users (
 LOAD DATA INFILE '/app/lookups/users.csv' INTO TABLE `users`
     FIELDS TERMINATED BY ','
     ENCLOSED BY '"'
-    LINES TERMINATED BY '\n'
+    LINES TERMINATED BY '\\n'
     IGNORE 1 ROWS;
 
 CREATE TABLE webmail (
@@ -57,5 +57,5 @@ CREATE TABLE webmail (
 LOAD DATA INFILE '/app/lookups/webmail.csv' INTO TABLE `webmail`
     FIELDS TERMINATED BY ','
     ENCLOSED BY '"'
-    LINES TERMINATED BY '\n'
+    LINES TERMINATED BY '\\n'
     IGNORE 1 ROWS;
