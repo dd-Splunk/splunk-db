@@ -5,7 +5,7 @@
       <table>
         <title>Top 10 Senders</title>
         <search>
-          <query>| inputlookup send-receive.csv | stats sum(bytes) AS Traffic by sender| sort -Traffic | head 10</query>
+          <query>| dbxquery query="SELECT * FROM `splunkdb`.`send-receive`" connection="splunkdb" | stats sum(bytes) AS Traffic by sender| sort -Traffic | head 10</query>
           <earliest>-24h@h</earliest>
           <latest>now</latest>
           <sampleRatio>1</sampleRatio>
@@ -14,6 +14,7 @@
         <option name="dataOverlayMode">none</option>
         <option name="drilldown">none</option>
         <option name="percentagesRow">false</option>
+        <option name="refresh.display">progressbar</option>
         <option name="rowNumbers">false</option>
         <option name="totalsRow">false</option>
         <option name="wrap">true</option>
@@ -23,7 +24,7 @@
       <table>
         <title>Top 10 Receivers</title>
         <search>
-          <query>| inputlookup send-receive.csv | stats sum(bytes) AS Traffic by receiver| sort -Traffic | head 10</query>
+          <query>| dbxquery query="SELECT * FROM `splunkdb`.`send-receive`" connection="splunkdb" | stats sum(bytes) AS Traffic by receiver| sort -Traffic | head 10</query>
           <earliest>-24h@h</earliest>
           <latest>now</latest>
           <sampleRatio>1</sampleRatio>
@@ -32,6 +33,7 @@
         <option name="dataOverlayMode">none</option>
         <option name="drilldown">none</option>
         <option name="percentagesRow">false</option>
+        <option name="refresh.display">progressbar</option>
         <option name="rowNumbers">false</option>
         <option name="totalsRow">false</option>
         <option name="wrap">true</option>

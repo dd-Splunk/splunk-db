@@ -5,7 +5,7 @@
       <table>
         <title>Host Status</title>
         <search>
-          <query>| inputlookup webmail.csv</query>
+          <query>| dbxquery query="SELECT * FROM `splunkdb`.`webmail`" connection="splunkdb"</query>
           <earliest>-24h@h</earliest>
           <latest>now</latest>
           <sampleRatio>1</sampleRatio>
@@ -14,6 +14,7 @@
         <option name="dataOverlayMode">none</option>
         <option name="drilldown">none</option>
         <option name="percentagesRow">false</option>
+        <option name="refresh.display">progressbar</option>
         <option name="rowNumbers">false</option>
         <option name="totalsRow">false</option>
         <option name="wrap">true</option>
@@ -28,7 +29,7 @@
       <viz type="punchcard_app.punchcard">
         <title>Host - Service Errors</title>
         <search>
-          <query>| inputlookup dc-svc.csv | eval is_nok = if(status="no", 1, 0)  | fields host, app, is_nok, status</query>
+          <query>| dbxquery query="SELECT * FROM `splunkdb`.`dc-svc`" connection="splunkdb" | eval is_nok = if(status="no", 1, 0)  | fields host, app, is_nok, status</query>
           <earliest>-24h@h</earliest>
           <latest>now</latest>
           <sampleRatio>1</sampleRatio>
