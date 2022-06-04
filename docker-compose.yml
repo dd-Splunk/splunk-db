@@ -37,6 +37,8 @@ services:
     volumes:
       - my-db:/var/lib/mysql
       - ./init-sql:/docker-entrypoint-initdb.d
+      - ./app/lookups:/app/lookups
+      - ./mysql-conf:/etc/mysql/conf.d
 
   # mssql:
   #   image: mcr.microsoft.com/mssql/server:2019-latest
