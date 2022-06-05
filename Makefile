@@ -19,7 +19,7 @@ export MY_ENV
 
 up:
 	echo "Powering up"
-	docker compose up -d
+	./start-environment.sh
 
 down:
 	echo "Powering down"
@@ -29,7 +29,7 @@ env:
 	echo "$$MY_ENV" | op inject -f > .env
 
 data:
-	python init-data.py
+	./init-data.sh
 
 clean:
 	docker compose down -v
