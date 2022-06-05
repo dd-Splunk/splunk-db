@@ -46,7 +46,7 @@ LOAD DATA INFILE '/app/lookups/users.csv' INTO TABLE `users`
     IGNORE 1 ROWS;
 CREATE TABLE webmail (
 	host VARCHAR(37) NOT NULL,
-	status VARCHAR(6) NOT NULL
+	status VARCHAR(2) NOT NULL
 );
 LOAD DATA INFILE '/app/lookups/webmail.csv' INTO TABLE `webmail`
     FIELDS TERMINATED BY ','

@@ -48,25 +48,33 @@ done
 docker compose up -d
 
 # Check Splunk availability
-until [ "$(curl -k -u admin:$SPLUNK_PASSWORD --silent --fail --connect-timeout 1 -I https://localhost:8089/servicesNS/nobody/splunk_app_db_connect/db_connect/dbxproxy/identities  )" ];
-do
-  echo --- Splunk is starting, please wait...
+REGEX="<sessionKey>(.+)<\/sessionKey>"
+
+until [[ "$(curl -k -s -u admin:$SPLUNK_PASSWORD https://localhost:8089/services/auth/login -d username=admin -d password=$SPLUNK_PASSWORD)" =~ $REGEX ]]; do
+  echo -n '.'
   sleep 10
 done
-# Wait DBX to startup
-sleep 60
-#
+# https://stackoverflow.com/questions/1891797/capturing-groups-from-a-grep-regex
+sessionKey=${BASH_REMATCH[1]}
+echo -e "\n"
+
 # Now that Splunk is up
-# Setup DB Connect
-#
+# Wait DB Connect to startup
+REGEX="\[\]"
+until [[ "$(curl -k -s -u admin:$SPLUNK_PASSWORD https://localhost:8089/servicesNS/nobody/splunk_app_db_connect/db_connect/dbxproxy/identities)" =~ $REGEX ]]; do
+  echo -n '.'
+  sleep 10
+done
+echo -e "\n"
+
+# DB Connect is up
 # Create identity
-curl -k -X POST -u admin:$SPLUNK_PASSWORD \
+curl -k -X POST -H "Authorization: Bearer $sessionKey" \
 https://localhost:8089/servicesNS/nobody/splunk_app_db_connect/db_connect/dbxproxy/identities \
 -d "{\"name\":\"splunk-id\",\"username\":\"$MYSQL_USER\",\"password\":\"$MYSQL_PASSWORD\"}"
 
 # Create a connection
-
-curl -k -X POST -u admin:$SPLUNK_PASSWORD \
+curl -k -X POST -H "Authorization: Bearer $sessionKey" \
 https://localhost:8089/servicesNS/nobody/splunk_app_db_connect/db_connect/dbxproxy/connections \
 -d "{\"name\":\"$MYSQL_DATABASE\", \"connection_type\":\"mysql\",  \
 \"host\":\"db\", \"database\":\"$MYSQL_DATABASE\", \"identity\":\"splunk-id\", \
