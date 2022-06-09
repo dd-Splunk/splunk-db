@@ -15,7 +15,7 @@ sessionKey=${BASH_REMATCH[1]}
 echo ""
 
 # Now that Splunk is up
-echo "Wiat for DB Connect to startup"
+echo "Wait for DB Connect to startup"
 REGEX="\[.*\]"
 until [[ "$(curl -k -s -H "Authorization: Bearer $sessionKey" https://localhost:8089/servicesNS/nobody/splunk_app_db_connect/db_connect/dbxproxy/identities)" =~ $REGEX ]]; do
   echo -n '.'
