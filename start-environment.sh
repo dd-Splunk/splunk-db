@@ -12,6 +12,7 @@ until [[ "$(curl -k -s -u admin:$SPLUNK_PASSWORD https://localhost:8089/services
 done
 # https://stackoverflow.com/questions/1891797/capturing-groups-from-a-grep-regex
 sessionKey=${BASH_REMATCH[1]}
+export sessionKey
 echo ""
 
 # Now that Splunk is up
