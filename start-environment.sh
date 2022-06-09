@@ -3,7 +3,7 @@ source .env
 # Bring up the environment
 docker compose up -d
 
-# Check Splunk availability
+echo "Wait for Splunk availability"
 REGEX="<sessionKey>(.+)<\/sessionKey>"
 
 until [[ "$(curl -k -s -u admin:$SPLUNK_PASSWORD https://localhost:8089/services/auth/login -d username=admin -d password=$SPLUNK_PASSWORD)" =~ $REGEX ]]; do
@@ -15,7 +15,7 @@ sessionKey=${BASH_REMATCH[1]}
 echo ""
 
 # Now that Splunk is up
-# Wait DB Connect to startup
+echo "Wiat for DB Connect to startup"
 REGEX="\[.*\]"
 until [[ "$(curl -k -s -H "Authorization: Bearer $sessionKey" https://localhost:8089/servicesNS/nobody/splunk_app_db_connect/db_connect/dbxproxy/identities)" =~ $REGEX ]]; do
   echo -n '.'
