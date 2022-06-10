@@ -19,7 +19,7 @@ echo $sessionKey
 # Now that Splunk is up
 echo "Wait for DB Connect to startup"
 REGEX="\[.*\]"
-until [[ "$(curl -k -s -u admin:$SPLUNK_PASSWORD  https://localhost:8089/servicesNS/nobody/splunk_app_db_connect/db_connect/dbxproxy/identities)" =~ $REGEX ]]; do
+until [[ "$(curl -k -s  -u admin:$SPLUNK_PASSWORD https://localhost:8089/servicesNS/nobody/splunk_app_db_connect/db_connect/dbxproxy/identities)" =~ $REGEX ]]; do
   echo -n '.'
   sleep 10
 done
