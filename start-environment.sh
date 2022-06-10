@@ -12,13 +12,14 @@ until [[ "$(curl -k -s -u admin:$SPLUNK_PASSWORD https://localhost:8089/services
 done
 # https://stackoverflow.com/questions/1891797/capturing-groups-from-a-grep-regex
 sessionKey=${BASH_REMATCH[1]}
-export sessionKey
+
 echo ""
+echo $sessionKey
 
 # Now that Splunk is up
 echo "Wait for DB Connect to startup"
 REGEX="\[.*\]"
-until [[ "$(curl -k -s -H "Authorization: Bearer $sessionKey" https://localhost:8089/servicesNS/nobody/splunk_app_db_connect/db_connect/dbxproxy/identities)" =~ $REGEX ]]; do
+until [[ "$(curl -k -s -u admin:$SPLUNK_PASSWORD  https://localhost:8089/servicesNS/nobody/splunk_app_db_connect/db_connect/dbxproxy/identities)" =~ $REGEX ]]; do
   echo -n '.'
   sleep 10
 done
@@ -27,7 +28,7 @@ echo ""
 # DB Connect is up
 # https://answers.splunk.com/answers/516111/splunk-db-connect-v3-automated-programmatic-creati.html
 # Create identity
-curl -k -s -X POST -H "Authorization: Bearer $sessionKey" \
+curl -k -s -X POST  -H "Authorization: Bearer $sessionKey"  \
 https://localhost:8089/servicesNS/nobody/splunk_app_db_connect/db_connect/dbxproxy/identities \
 -d "{\"name\":\"splunk-id\",\"username\":\"$MYSQL_USER\",\"password\":\"$MYSQL_PASSWORD\"}"
 echo ""
