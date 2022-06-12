@@ -1,4 +1,3 @@
-csv
-csvkit
 pre-commit
-random
+python-dotenv
+random-username

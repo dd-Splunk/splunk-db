@@ -1,7 +1,27 @@
 import csv
+import os
 import random
 
-data_dir = "./app/lookups/"
+from dotenv import load_dotenv
+from random_username.generate import generate_username
+
+load_dotenv()
+data_dir = os.getenv("DATA_DIR")
+
+filename = data_dir + "users.csv"
+header = ["username"]
+data = []
+users = []  # Will contain the generated list of DCs
+
+with open(filename, "w", encoding="UTF8") as f:
+    writer = csv.writer(f)
+
+    # write the header
+    writer.writerow(header)
+
+    users = generate_username(20)
+    for u in users:
+        writer.writerow([u])
 
 filename = data_dir + "dc.csv"
 header = ["dc_name"]

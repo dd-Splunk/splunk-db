@@ -10,6 +10,7 @@ SPLUNK_PASSWORD=Splunk4Me
 SPLUNKBASE_USERNAME={{op://Splunk/splunk.okta.com/username}}@splunk.com
 SPLUNKBASE_PASSWORD={{op://Splunk/splunk.okta.com/password}}
 # MySQL stuff
+DATA_DIR=./app/lookups/
 MYSQL_DATABASE=splunkdb
 MYSQL_USER=splunk
 MYSQL_PASSWORD=splunk
@@ -17,19 +18,18 @@ MYSQL_ROOT_PASSWORD=mysql-password
 endef
 export MY_ENV
 
+env:
+	echo "Create .env"
+	echo "$$MY_ENV" | op inject -f > .env
+data:
+	python init-data.py
+sql:
+	./init-sql.sh
 up:
 	echo "Powering up"
 	./start-environment.sh
-
 down:
 	echo "Powering down"
 	docker compose down
-
-env:
-	echo "$$MY_ENV" | op inject -f > .env
-
-data:
-	./init-data.sh
-
 clean:
 	docker compose down -v

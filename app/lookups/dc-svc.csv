@@ -8,9 +8,9 @@ S-DC-EXC0101,EWS,ok
 S-DC-EXC0101,ECP,ok
 S-DC-EXC0101,OAB,ok
 S-DC-EXC0101,Services,ok
-S-DC-EXC0101,Replication,ok
+S-DC-EXC0101,Replication,no
 S-DC-EXC0101,MRS,ok
-S-DC-EXC0101,MAPI-Connectivity,ok
+S-DC-EXC0101,MAPI-Connectivity,no
 S-DC-EXC0101,Maintenance,ok
 S-DC-EXC0101,Active DBs,ok
 S-DC-EXC0101,Passive DBs,ok
@@ -28,11 +28,11 @@ S-DC-EXC0102,ECP,ok
 S-DC-EXC0102,OAB,ok
 S-DC-EXC0102,Services,ok
 S-DC-EXC0102,Replication,ok
-S-DC-EXC0102,MRS,no
+S-DC-EXC0102,MRS,ok
 S-DC-EXC0102,MAPI-Connectivity,ok
 S-DC-EXC0102,Maintenance,ok
 S-DC-EXC0102,Active DBs,ok
-S-DC-EXC0102,Passive DBs,ok
+S-DC-EXC0102,Passive DBs,no
 S-DC-EXC0102,Disks,ok
 S-DC-EXC0102,BitLocker,ok
 S-DC-EXC0102,Anti-Malware,ok
@@ -47,7 +47,7 @@ S-DC-EXC0103,ECP,ok
 S-DC-EXC0103,OAB,ok
 S-DC-EXC0103,Services,ok
 S-DC-EXC0103,Replication,ok
-S-DC-EXC0103,MRS,no
+S-DC-EXC0103,MRS,ok
 S-DC-EXC0103,MAPI-Connectivity,ok
 S-DC-EXC0103,Maintenance,ok
 S-DC-EXC0103,Active DBs,ok
@@ -65,7 +65,7 @@ S-DC-EXC0104,EWS,ok
 S-DC-EXC0104,ECP,ok
 S-DC-EXC0104,OAB,ok
 S-DC-EXC0104,Services,ok
-S-DC-EXC0104,Replication,no
+S-DC-EXC0104,Replication,ok
 S-DC-EXC0104,MRS,ok
 S-DC-EXC0104,MAPI-Connectivity,ok
 S-DC-EXC0104,Maintenance,ok
@@ -103,10 +103,10 @@ S-DC-EXC0106,EWS,ok
 S-DC-EXC0106,ECP,ok
 S-DC-EXC0106,OAB,ok
 S-DC-EXC0106,Services,ok
-S-DC-EXC0106,Replication,no
+S-DC-EXC0106,Replication,ok
 S-DC-EXC0106,MRS,ok
-S-DC-EXC0106,MAPI-Connectivity,no
-S-DC-EXC0106,Maintenance,ok
+S-DC-EXC0106,MAPI-Connectivity,ok
+S-DC-EXC0106,Maintenance,no
 S-DC-EXC0106,Active DBs,ok
 S-DC-EXC0106,Passive DBs,ok
 S-DC-EXC0106,Disks,ok
@@ -115,14 +115,14 @@ S-DC-EXC0106,Anti-Malware,ok
 S-DC-EXC0106,PendingReboot,ok
 S-DC-EXC0107,OWA,ok
 S-DC-EXC0107,MAPI,ok
-S-DC-EXC0107,RPC,ok
-S-DC-EXC0107,Autodiscover,ok
+S-DC-EXC0107,RPC,no
+S-DC-EXC0107,Autodiscover,no
 S-DC-EXC0107,Powershell,ok
 S-DC-EXC0107,EWS,no
 S-DC-EXC0107,ECP,ok
 S-DC-EXC0107,OAB,ok
 S-DC-EXC0107,Services,ok
-S-DC-EXC0107,Replication,no
+S-DC-EXC0107,Replication,ok
 S-DC-EXC0107,MRS,ok
 S-DC-EXC0107,MAPI-Connectivity,ok
 S-DC-EXC0107,Maintenance,ok
@@ -143,13 +143,13 @@ S-DC-EXC0108,OAB,ok
 S-DC-EXC0108,Services,ok
 S-DC-EXC0108,Replication,ok
 S-DC-EXC0108,MRS,ok
-S-DC-EXC0108,MAPI-Connectivity,ok
+S-DC-EXC0108,MAPI-Connectivity,no
 S-DC-EXC0108,Maintenance,ok
 S-DC-EXC0108,Active DBs,ok
 S-DC-EXC0108,Passive DBs,ok
 S-DC-EXC0108,Disks,ok
 S-DC-EXC0108,BitLocker,ok
-S-DC-EXC0108,Anti-Malware,no
+S-DC-EXC0108,Anti-Malware,ok
 S-DC-EXC0108,PendingReboot,ok
 S-DC-EXC0201,OWA,ok
 S-DC-EXC0201,MAPI,ok
@@ -161,7 +161,7 @@ S-DC-EXC0201,ECP,ok
 S-DC-EXC0201,OAB,ok
 S-DC-EXC0201,Services,ok
 S-DC-EXC0201,Replication,ok
-S-DC-EXC0201,MRS,no
+S-DC-EXC0201,MRS,ok
 S-DC-EXC0201,MAPI-Connectivity,ok
 S-DC-EXC0201,Maintenance,ok
 S-DC-EXC0201,Active DBs,ok
@@ -232,12 +232,12 @@ S-DC-EXC0205,MAPI,ok
 S-DC-EXC0205,RPC,ok
 S-DC-EXC0205,Autodiscover,ok
 S-DC-EXC0205,Powershell,ok
-S-DC-EXC0205,EWS,no
+S-DC-EXC0205,EWS,ok
 S-DC-EXC0205,ECP,ok
 S-DC-EXC0205,OAB,ok
 S-DC-EXC0205,Services,ok
 S-DC-EXC0205,Replication,ok
-S-DC-EXC0205,MRS,no
+S-DC-EXC0205,MRS,ok
 S-DC-EXC0205,MAPI-Connectivity,ok
 S-DC-EXC0205,Maintenance,ok
 S-DC-EXC0205,Active DBs,ok
@@ -256,7 +256,7 @@ S-DC-EXC0206,ECP,ok
 S-DC-EXC0206,OAB,ok
 S-DC-EXC0206,Services,ok
 S-DC-EXC0206,Replication,ok
-S-DC-EXC0206,MRS,ok
+S-DC-EXC0206,MRS,no
 S-DC-EXC0206,MAPI-Connectivity,ok
 S-DC-EXC0206,Maintenance,ok
 S-DC-EXC0206,Active DBs,ok
@@ -269,13 +269,13 @@ S-DC-EXC0207,OWA,ok
 S-DC-EXC0207,MAPI,ok
 S-DC-EXC0207,RPC,ok
 S-DC-EXC0207,Autodiscover,ok
-S-DC-EXC0207,Powershell,no
+S-DC-EXC0207,Powershell,ok
 S-DC-EXC0207,EWS,ok
 S-DC-EXC0207,ECP,ok
 S-DC-EXC0207,OAB,ok
 S-DC-EXC0207,Services,ok
 S-DC-EXC0207,Replication,ok
-S-DC-EXC0207,MRS,no
+S-DC-EXC0207,MRS,ok
 S-DC-EXC0207,MAPI-Connectivity,ok
 S-DC-EXC0207,Maintenance,ok
 S-DC-EXC0207,Active DBs,ok
@@ -284,9 +284,9 @@ S-DC-EXC0207,Disks,ok
 S-DC-EXC0207,BitLocker,ok
 S-DC-EXC0207,Anti-Malware,ok
 S-DC-EXC0207,PendingReboot,ok
-S-DC-EXC0208,OWA,no
-S-DC-EXC0208,MAPI,no
-S-DC-EXC0208,RPC,no
+S-DC-EXC0208,OWA,ok
+S-DC-EXC0208,MAPI,ok
+S-DC-EXC0208,RPC,ok
 S-DC-EXC0208,Autodiscover,ok
 S-DC-EXC0208,Powershell,ok
 S-DC-EXC0208,EWS,ok
@@ -315,7 +315,7 @@ S-DC-EXC0301,Services,ok
 S-DC-EXC0301,Replication,ok
 S-DC-EXC0301,MRS,ok
 S-DC-EXC0301,MAPI-Connectivity,ok
-S-DC-EXC0301,Maintenance,no
+S-DC-EXC0301,Maintenance,ok
 S-DC-EXC0301,Active DBs,ok
 S-DC-EXC0301,Passive DBs,ok
 S-DC-EXC0301,Disks,ok
@@ -323,7 +323,7 @@ S-DC-EXC0301,BitLocker,ok
 S-DC-EXC0301,Anti-Malware,ok
 S-DC-EXC0301,PendingReboot,ok
 S-DC-EXC0302,OWA,ok
-S-DC-EXC0302,MAPI,ok
+S-DC-EXC0302,MAPI,no
 S-DC-EXC0302,RPC,ok
 S-DC-EXC0302,Autodiscover,ok
 S-DC-EXC0302,Powershell,ok
@@ -332,20 +332,20 @@ S-DC-EXC0302,ECP,ok
 S-DC-EXC0302,OAB,ok
 S-DC-EXC0302,Services,ok
 S-DC-EXC0302,Replication,ok
-S-DC-EXC0302,MRS,no
-S-DC-EXC0302,MAPI-Connectivity,ok
+S-DC-EXC0302,MRS,ok
+S-DC-EXC0302,MAPI-Connectivity,no
 S-DC-EXC0302,Maintenance,ok
 S-DC-EXC0302,Active DBs,ok
 S-DC-EXC0302,Passive DBs,ok
 S-DC-EXC0302,Disks,ok
-S-DC-EXC0302,BitLocker,ok
+S-DC-EXC0302,BitLocker,no
 S-DC-EXC0302,Anti-Malware,ok
 S-DC-EXC0302,PendingReboot,ok
 S-DC-EXC0303,OWA,ok
 S-DC-EXC0303,MAPI,ok
-S-DC-EXC0303,RPC,no
+S-DC-EXC0303,RPC,ok
 S-DC-EXC0303,Autodiscover,ok
-S-DC-EXC0303,Powershell,no
+S-DC-EXC0303,Powershell,ok
 S-DC-EXC0303,EWS,ok
 S-DC-EXC0303,ECP,ok
 S-DC-EXC0303,OAB,ok
@@ -363,7 +363,7 @@ S-DC-EXC0303,PendingReboot,no
 S-DC-EXC0304,OWA,ok
 S-DC-EXC0304,MAPI,ok
 S-DC-EXC0304,RPC,ok
-S-DC-EXC0304,Autodiscover,ok
+S-DC-EXC0304,Autodiscover,no
 S-DC-EXC0304,Powershell,ok
 S-DC-EXC0304,EWS,ok
 S-DC-EXC0304,ECP,ok
@@ -373,14 +373,14 @@ S-DC-EXC0304,Replication,ok
 S-DC-EXC0304,MRS,ok
 S-DC-EXC0304,MAPI-Connectivity,ok
 S-DC-EXC0304,Maintenance,ok
-S-DC-EXC0304,Active DBs,no
+S-DC-EXC0304,Active DBs,ok
 S-DC-EXC0304,Passive DBs,ok
 S-DC-EXC0304,Disks,ok
 S-DC-EXC0304,BitLocker,ok
 S-DC-EXC0304,Anti-Malware,ok
 S-DC-EXC0304,PendingReboot,ok
 S-DC-EXC0305,OWA,ok
-S-DC-EXC0305,MAPI,no
+S-DC-EXC0305,MAPI,ok
 S-DC-EXC0305,RPC,ok
 S-DC-EXC0305,Autodiscover,ok
 S-DC-EXC0305,Powershell,ok
@@ -389,9 +389,9 @@ S-DC-EXC0305,ECP,ok
 S-DC-EXC0305,OAB,ok
 S-DC-EXC0305,Services,ok
 S-DC-EXC0305,Replication,ok
-S-DC-EXC0305,MRS,ok
+S-DC-EXC0305,MRS,no
 S-DC-EXC0305,MAPI-Connectivity,ok
-S-DC-EXC0305,Maintenance,no
+S-DC-EXC0305,Maintenance,ok
 S-DC-EXC0305,Active DBs,ok
 S-DC-EXC0305,Passive DBs,ok
 S-DC-EXC0305,Disks,ok
@@ -402,7 +402,7 @@ S-DC-EXC0306,OWA,ok
 S-DC-EXC0306,MAPI,ok
 S-DC-EXC0306,RPC,ok
 S-DC-EXC0306,Autodiscover,ok
-S-DC-EXC0306,Powershell,ok
+S-DC-EXC0306,Powershell,no
 S-DC-EXC0306,EWS,ok
 S-DC-EXC0306,ECP,ok
 S-DC-EXC0306,OAB,ok
@@ -427,7 +427,7 @@ S-DC-EXC0307,ECP,ok
 S-DC-EXC0307,OAB,ok
 S-DC-EXC0307,Services,ok
 S-DC-EXC0307,Replication,ok
-S-DC-EXC0307,MRS,no
+S-DC-EXC0307,MRS,ok
 S-DC-EXC0307,MAPI-Connectivity,ok
 S-DC-EXC0307,Maintenance,ok
 S-DC-EXC0307,Active DBs,ok
@@ -479,7 +479,7 @@ S-DC-EXC0402,MAPI,ok
 S-DC-EXC0402,RPC,ok
 S-DC-EXC0402,Autodiscover,ok
 S-DC-EXC0402,Powershell,ok
-S-DC-EXC0402,EWS,ok
+S-DC-EXC0402,EWS,no
 S-DC-EXC0402,ECP,ok
 S-DC-EXC0402,OAB,ok
 S-DC-EXC0402,Services,ok
@@ -495,7 +495,7 @@ S-DC-EXC0402,Anti-Malware,ok
 S-DC-EXC0402,PendingReboot,ok
 S-DC-EXC0403,OWA,ok
 S-DC-EXC0403,MAPI,ok
-S-DC-EXC0403,RPC,no
+S-DC-EXC0403,RPC,ok
 S-DC-EXC0403,Autodiscover,ok
 S-DC-EXC0403,Powershell,ok
 S-DC-EXC0403,EWS,ok
@@ -523,8 +523,8 @@ S-DC-EXC0404,OAB,ok
 S-DC-EXC0404,Services,ok
 S-DC-EXC0404,Replication,ok
 S-DC-EXC0404,MRS,ok
-S-DC-EXC0404,MAPI-Connectivity,no
-S-DC-EXC0404,Maintenance,no
+S-DC-EXC0404,MAPI-Connectivity,ok
+S-DC-EXC0404,Maintenance,ok
 S-DC-EXC0404,Active DBs,ok
 S-DC-EXC0404,Passive DBs,ok
 S-DC-EXC0404,Disks,ok
@@ -545,7 +545,7 @@ S-DC-EXC0405,MRS,ok
 S-DC-EXC0405,MAPI-Connectivity,ok
 S-DC-EXC0405,Maintenance,ok
 S-DC-EXC0405,Active DBs,ok
-S-DC-EXC0405,Passive DBs,ok
+S-DC-EXC0405,Passive DBs,no
 S-DC-EXC0405,Disks,ok
 S-DC-EXC0405,BitLocker,ok
 S-DC-EXC0405,Anti-Malware,ok
@@ -556,7 +556,7 @@ S-DC-EXC0406,RPC,ok
 S-DC-EXC0406,Autodiscover,ok
 S-DC-EXC0406,Powershell,ok
 S-DC-EXC0406,EWS,ok
-S-DC-EXC0406,ECP,ok
+S-DC-EXC0406,ECP,no
 S-DC-EXC0406,OAB,ok
 S-DC-EXC0406,Services,ok
 S-DC-EXC0406,Replication,ok
@@ -568,8 +568,8 @@ S-DC-EXC0406,Passive DBs,ok
 S-DC-EXC0406,Disks,ok
 S-DC-EXC0406,BitLocker,ok
 S-DC-EXC0406,Anti-Malware,ok
-S-DC-EXC0406,PendingReboot,no
-S-DC-EXC0407,OWA,ok
+S-DC-EXC0406,PendingReboot,ok
+S-DC-EXC0407,OWA,no
 S-DC-EXC0407,MAPI,ok
 S-DC-EXC0407,RPC,ok
 S-DC-EXC0407,Autodiscover,ok
@@ -585,13 +585,13 @@ S-DC-EXC0407,Maintenance,ok
 S-DC-EXC0407,Active DBs,ok
 S-DC-EXC0407,Passive DBs,ok
 S-DC-EXC0407,Disks,ok
-S-DC-EXC0407,BitLocker,no
-S-DC-EXC0407,Anti-Malware,ok
+S-DC-EXC0407,BitLocker,ok
+S-DC-EXC0407,Anti-Malware,no
 S-DC-EXC0407,PendingReboot,ok
 S-DC-EXC0408,OWA,ok
 S-DC-EXC0408,MAPI,ok
 S-DC-EXC0408,RPC,ok
-S-DC-EXC0408,Autodiscover,no
+S-DC-EXC0408,Autodiscover,ok
 S-DC-EXC0408,Powershell,ok
 S-DC-EXC0408,EWS,ok
 S-DC-EXC0408,ECP,ok
@@ -613,7 +613,7 @@ S-DC-EXC0501,RPC,ok
 S-DC-EXC0501,Autodiscover,ok
 S-DC-EXC0501,Powershell,ok
 S-DC-EXC0501,EWS,ok
-S-DC-EXC0501,ECP,no
+S-DC-EXC0501,ECP,ok
 S-DC-EXC0501,OAB,ok
 S-DC-EXC0501,Services,ok
 S-DC-EXC0501,Replication,ok
@@ -631,15 +631,15 @@ S-DC-EXC0502,MAPI,ok
 S-DC-EXC0502,RPC,ok
 S-DC-EXC0502,Autodiscover,ok
 S-DC-EXC0502,Powershell,ok
-S-DC-EXC0502,EWS,no
+S-DC-EXC0502,EWS,ok
 S-DC-EXC0502,ECP,ok
 S-DC-EXC0502,OAB,ok
 S-DC-EXC0502,Services,ok
 S-DC-EXC0502,Replication,ok
-S-DC-EXC0502,MRS,no
+S-DC-EXC0502,MRS,ok
 S-DC-EXC0502,MAPI-Connectivity,ok
 S-DC-EXC0502,Maintenance,ok
-S-DC-EXC0502,Active DBs,no
+S-DC-EXC0502,Active DBs,ok
 S-DC-EXC0502,Passive DBs,ok
 S-DC-EXC0502,Disks,ok
 S-DC-EXC0502,BitLocker,ok
@@ -661,18 +661,18 @@ S-DC-EXC0503,Maintenance,ok
 S-DC-EXC0503,Active DBs,ok
 S-DC-EXC0503,Passive DBs,ok
 S-DC-EXC0503,Disks,ok
-S-DC-EXC0503,BitLocker,ok
+S-DC-EXC0503,BitLocker,no
 S-DC-EXC0503,Anti-Malware,ok
 S-DC-EXC0503,PendingReboot,ok
 S-DC-EXC0504,OWA,ok
-S-DC-EXC0504,MAPI,ok
+S-DC-EXC0504,MAPI,no
 S-DC-EXC0504,RPC,ok
 S-DC-EXC0504,Autodiscover,ok
 S-DC-EXC0504,Powershell,ok
-S-DC-EXC0504,EWS,ok
+S-DC-EXC0504,EWS,no
 S-DC-EXC0504,ECP,ok
 S-DC-EXC0504,OAB,ok
-S-DC-EXC0504,Services,ok
+S-DC-EXC0504,Services,no
 S-DC-EXC0504,Replication,ok
 S-DC-EXC0504,MRS,ok
 S-DC-EXC0504,MAPI-Connectivity,ok
@@ -684,7 +684,7 @@ S-DC-EXC0504,BitLocker,ok
 S-DC-EXC0504,Anti-Malware,ok
 S-DC-EXC0504,PendingReboot,ok
 S-DC-EXC0505,OWA,ok
-S-DC-EXC0505,MAPI,no
+S-DC-EXC0505,MAPI,ok
 S-DC-EXC0505,RPC,ok
 S-DC-EXC0505,Autodiscover,ok
 S-DC-EXC0505,Powershell,ok
@@ -692,7 +692,7 @@ S-DC-EXC0505,EWS,ok
 S-DC-EXC0505,ECP,ok
 S-DC-EXC0505,OAB,ok
 S-DC-EXC0505,Services,ok
-S-DC-EXC0505,Replication,no
+S-DC-EXC0505,Replication,ok
 S-DC-EXC0505,MRS,ok
 S-DC-EXC0505,MAPI-Connectivity,ok
 S-DC-EXC0505,Maintenance,ok
@@ -703,7 +703,7 @@ S-DC-EXC0505,BitLocker,ok
 S-DC-EXC0505,Anti-Malware,ok
 S-DC-EXC0505,PendingReboot,ok
 S-DC-EXC0506,OWA,ok
-S-DC-EXC0506,MAPI,ok
+S-DC-EXC0506,MAPI,no
 S-DC-EXC0506,RPC,ok
 S-DC-EXC0506,Autodiscover,ok
 S-DC-EXC0506,Powershell,ok
@@ -726,11 +726,11 @@ S-DC-EXC0507,MAPI,ok
 S-DC-EXC0507,RPC,ok
 S-DC-EXC0507,Autodiscover,ok
 S-DC-EXC0507,Powershell,ok
-S-DC-EXC0507,EWS,no
+S-DC-EXC0507,EWS,ok
 S-DC-EXC0507,ECP,ok
 S-DC-EXC0507,OAB,ok
 S-DC-EXC0507,Services,ok
-S-DC-EXC0507,Replication,no
+S-DC-EXC0507,Replication,ok
 S-DC-EXC0507,MRS,ok
 S-DC-EXC0507,MAPI-Connectivity,ok
 S-DC-EXC0507,Maintenance,ok
