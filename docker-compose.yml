@@ -37,7 +37,7 @@ services:
     volumes:
       - my-db:/var/lib/mysql
       - ./init-sql:/docker-entrypoint-initdb.d
-      - ./app/lookups:/app/lookups
+      - ${DATA_DIR}:/app/lookups
       - ./mysql-conf:/etc/mysql/conf.d
 
 volumes:

@@ -8,6 +8,41 @@ from random_username.generate import generate_username
 load_dotenv()
 data_dir = os.getenv("DATA_DIR")
 
+filename = data_dir + "services.csv"
+header = ["service_name"]
+data = []
+svcs = [
+    "OWA",
+    "MAPI",
+    "RPC",
+    "Autodiscover",
+    "Powershell",
+    "EWS",
+    "ECP",
+    "OAB",
+    "Services",
+    "Replication",
+    "MRS",
+    "MAPI-Connectivity",
+    "Maintenance",
+    "Active DBs",
+    "Passive DBs",
+    "Disks",
+    "BitLocker",
+    "Anti-Malware",
+    "PendingReboot",
+]
+
+with open(filename, "w", encoding="UTF8") as f:
+    writer = csv.writer(f)
+
+    # write the header
+    writer.writerow(header)
+
+    for s in svcs:
+        data = [s]
+        writer.writerow(data)
+
 filename = data_dir + "users.csv"
 header = ["username"]
 data = []
@@ -21,7 +56,8 @@ with open(filename, "w", encoding="UTF8") as f:
 
     users = generate_username(20)
     for u in users:
-        writer.writerow([u])
+        data = [u]
+        writer.writerow(data)
 
 filename = data_dir + "dc.csv"
 header = ["dc_name"]
@@ -47,12 +83,6 @@ with open(data_dir + "services.csv") as file:
     svcs = file.read().split("\n")
 svcs.pop(0)  # Remove Header
 svcs = list(filter(None, svcs))  # remove empty strings
-
-# Read Users
-with open(data_dir + "users.csv") as file:
-    users = file.read().split("\n")
-users.pop(0)  # Remove Header
-users = list(filter(None, users))  # remove empty strings
 
 # Generate Status
 filename = data_dir + "dc-svc.csv"
