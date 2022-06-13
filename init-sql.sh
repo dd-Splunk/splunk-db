@@ -5,7 +5,7 @@ source .env
 #
 # python init-data.py
 #
-# Create MySQL initilization file from generated data
+# Create MySQL initilization files from generated data
 #
 
 echo "DATA: $DATA_DIR"
