@@ -4,38 +4,34 @@ source .env
 docker compose up -d
 
 echo "Wait for Splunk availability"
-REGEX="<sessionKey>(.+)<\/sessionKey>"
 
-until [[ "$(curl -k -s -u admin:$SPLUNK_PASSWORD https://localhost:8089/services/auth/login -d username=admin -d password=$SPLUNK_PASSWORD)" =~ $REGEX ]]; do
-  echo -n '.'
+REGEX="<sessionKey>(.+)<\/sessionKey>"
+until [[ "$(curl -k -s -u admin:$SPLUNK_PASSWORD https://$SPLUNK_HOST:8089/services/auth/login -d username=admin -d password=$SPLUNK_PASSWORD)" =~ $REGEX ]]; do
+  echo -n 's'
   sleep 10
 done
 # https://stackoverflow.com/questions/1891797/capturing-groups-from-a-grep-regex
 sessionKey=${BASH_REMATCH[1]}
 
-echo ""
-echo $sessionKey
-
 # Now that Splunk is up
 echo "Wait for DB Connect to startup"
-REGEX="\[.*\]"
-until [[ "$(curl -k -s  -u admin:$SPLUNK_PASSWORD https://localhost:8089/servicesNS/nobody/splunk_app_db_connect/db_connect/dbxproxy/identities)" =~ $REGEX ]]; do
-  echo -n '.'
-  sleep 10
+http_status=""
+while [[ $http_status -ne 200 ]]; do
+  http_status=$(curl -k -s -o /dev/null -w "%{http_code}" -H "Authorization:Splunk $sessionKey"  https://$SPLUNK_HOST:8089/servicesNS/nobody/splunk_app_db_connect/db_connect/dbxproxy/identities)
+  echo "Status: $http_status"
 done
-id=${BASH_REMATCH[1]}
-echo ""
 
 # DB Connect is up
 # https://answers.splunk.com/answers/516111/splunk-db-connect-v3-automated-programmatic-creati.html
 # Create identity
 curl -k -s -X POST  -H "Authorization:Splunk $sessionKey"  \
-https://localhost:8089/servicesNS/nobody/splunk_app_db_connect/db_connect/dbxproxy/identities \
--d "{\"name\":\"splunk-id\",\"username\":\"$MYSQL_USER\",\"password\":\"$MYSQL_PASSWORD\"}"
+https://$SPLUNK_HOST:8089/servicesNS/nobody/splunk_app_db_connect/db_connect/dbxproxy/identities \
+-d "{\"name\":\"$MYSQL_USER\",\"username\":\"$MYSQL_USER\",\"password\":\"$MYSQL_PASSWORD\"}"
 echo ""
 # Create a connection
 curl -k -s -X POST  -H "Authorization:Splunk $sessionKey" \
-https://localhost:8089/servicesNS/nobody/splunk_app_db_connect/db_connect/dbxproxy/connections \
+https://$SPLUNK_HOST:8089/servicesNS/nobody/splunk_app_db_connect/db_connect/dbxproxy/connections \
 -d "{\"name\":\"$MYSQL_DATABASE\", \"connection_type\":\"mysql\",  \
-\"host\":\"db\", \"database\":\"$MYSQL_DATABASE\", \"identity\":\"splunk-id\", \
+\"host\":\"db\", \"database\":\"$MYSQL_DATABASE\", \"identity\":\"$MYSQL_USER\", \
 \"port\":\"3306\", \"timezone\":\"Europe/Brussels\"}"
+echo ""
