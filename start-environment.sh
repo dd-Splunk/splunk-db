@@ -23,17 +23,18 @@ until [[ "$(curl -k -s  -u admin:$SPLUNK_PASSWORD https://localhost:8089/service
   echo -n '.'
   sleep 10
 done
+id=${BASH_REMATCH[1]}
 echo ""
 
 # DB Connect is up
 # https://answers.splunk.com/answers/516111/splunk-db-connect-v3-automated-programmatic-creati.html
 # Create identity
-curl -k -s -X POST  -H "Authorization: Bearer $sessionKey"  \
+curl -k -s -X POST  -H "Authorization:Splunk $sessionKey"  \
 https://localhost:8089/servicesNS/nobody/splunk_app_db_connect/db_connect/dbxproxy/identities \
 -d "{\"name\":\"splunk-id\",\"username\":\"$MYSQL_USER\",\"password\":\"$MYSQL_PASSWORD\"}"
 echo ""
 # Create a connection
-curl -k -s -X POST -H "Authorization: Bearer $sessionKey" \
+curl -k -s -X POST  -H "Authorization:Splunk $sessionKey" \
 https://localhost:8089/servicesNS/nobody/splunk_app_db_connect/db_connect/dbxproxy/connections \
 -d "{\"name\":\"$MYSQL_DATABASE\", \"connection_type\":\"mysql\",  \
 \"host\":\"db\", \"database\":\"$MYSQL_DATABASE\", \"identity\":\"splunk-id\", \
