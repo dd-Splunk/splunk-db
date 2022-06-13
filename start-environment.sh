@@ -16,10 +16,10 @@ sessionKey=${BASH_REMATCH[1]}
 # Now that Splunk is up
 echo -e "\nWait for DB Connect to startup"
 http_status=""
-while [[ $http_status -ne 200 ]]; do
+until [[ $http_status -eq 200 ]]; do
+  sleep 10
   http_status=$(curl -k -s -o /dev/null -w "%{http_code}" -u admin:$SPLUNK_PASSWORD  https://$SPLUNK_HOST:8089/servicesNS/nobody/splunk_app_db_connect/db_connect/dbxproxy/identities)
   echo "Status: $http_status"
-  sleep 10
 done
 
 # DB Connect is up
