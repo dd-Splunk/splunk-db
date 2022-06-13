@@ -8,8 +8,14 @@ source .env
 # Create MySQL initilization file from generated data
 #
 
-# DATA_DIR="./app/lookups"
 echo "DATA: $DATA_DIR"
+
+cat <<EOF > ./mysql-conf/my.cnf
+# To allow loading data from the app directory
+[mysqld]
+secure_file_priv="${DATA_DIR:1}"
+EOF
+
 SQL="./init-sql/create-db.sql"
 # Create DB
 echo "USE $MYSQL_DATABASE;

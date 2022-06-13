@@ -19,6 +19,7 @@ http_status=""
 while [[ $http_status -ne 200 ]]; do
   http_status=$(curl -k -s -o /dev/null -w "%{http_code}" -H "Authorization:Splunk $sessionKey"  https://$SPLUNK_HOST:8089/servicesNS/nobody/splunk_app_db_connect/db_connect/dbxproxy/identities)
   echo "Status: $http_status"
+  sleep 10
 done
 
 # DB Connect is up

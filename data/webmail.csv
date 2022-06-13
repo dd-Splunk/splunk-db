@@ -1,0 +1,12 @@
+host,status
+server.webmail.ec.europa.eu,ok
+webmail.webmail.ec.europa.eu,ok
+ecp.webmail.ec.europa.eu,ok
+ews.webmail.ec.europa.eu,ok
+eas.webmail.ec.europa.eu,ok
+oab.webmail.ec.europa.eu,ok
+mapi.webmail.ec.europa.eu,ok
+autodiscover.webmail.ec.europa.eu,ok
+autodiscover.ext.webmail.ec.europa.eu,ok
+powershell.webmail.ec.europa.eu,ok
+oos.webmail.ec.europa.eu,ok

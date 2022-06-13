@@ -10,7 +10,7 @@ SPLUNK_PASSWORD=Splunk4Me
 SPLUNKBASE_USERNAME={{op://Splunk/splunk.okta.com/username}}@splunk.com
 SPLUNKBASE_PASSWORD={{op://Splunk/splunk.okta.com/password}}
 # MySQL stuff
-DATA_DIR=./app/lookups/
+DATA_DIR=./data
 MYSQL_DATABASE=splunkdb
 MYSQL_USER=splunk
 MYSQL_PASSWORD=splunk
