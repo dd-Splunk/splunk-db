@@ -14,10 +14,10 @@ done
 sessionKey=${BASH_REMATCH[1]}
 
 # Now that Splunk is up
-echo "Wait for DB Connect to startup"
+echo -e "\nWait for DB Connect to startup"
 http_status=""
 while [[ $http_status -ne 200 ]]; do
-  http_status=$(curl -k -s -o /dev/null -w "%{http_code}" -H "Authorization:Splunk $sessionKey"  https://$SPLUNK_HOST:8089/servicesNS/nobody/splunk_app_db_connect/db_connect/dbxproxy/identities)
+  http_status=$(curl -k -s -o /dev/null -w "%{http_code}" -u admin:$SPLUNK_PASSWORD  https://$SPLUNK_HOST:8089/servicesNS/nobody/splunk_app_db_connect/db_connect/dbxproxy/identities)
   echo "Status: $http_status"
   sleep 10
 done
@@ -25,12 +25,12 @@ done
 # DB Connect is up
 # https://answers.splunk.com/answers/516111/splunk-db-connect-v3-automated-programmatic-creati.html
 # Create identity
-curl -k -s -X POST  -H "Authorization:Splunk $sessionKey"  \
+curl -k -s -X POST  -u admin:$SPLUNK_PASSWORD  \
 https://$SPLUNK_HOST:8089/servicesNS/nobody/splunk_app_db_connect/db_connect/dbxproxy/identities \
 -d "{\"name\":\"$MYSQL_USER\",\"username\":\"$MYSQL_USER\",\"password\":\"$MYSQL_PASSWORD\"}"
 echo ""
 # Create a connection
-curl -k -s -X POST  -H "Authorization:Splunk $sessionKey" \
+curl -k -s -X POST  -u admin:$SPLUNK_PASSWORD \
 https://$SPLUNK_HOST:8089/servicesNS/nobody/splunk_app_db_connect/db_connect/dbxproxy/connections \
 -d "{\"name\":\"$MYSQL_DATABASE\", \"connection_type\":\"mysql\",  \
 \"host\":\"db\", \"database\":\"$MYSQL_DATABASE\", \"identity\":\"$MYSQL_USER\", \

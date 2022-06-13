@@ -19,8 +19,8 @@ LOAD DATA INFILE '/data/dc.csv' INTO TABLE `dc`
     LINES TERMINATED BY '\n'
     IGNORE 1 ROWS;
 CREATE TABLE `send-receive` (
-	sender VARCHAR(16) NOT NULL,
-	receiver VARCHAR(16) NOT NULL,
+	sender VARCHAR(17) NOT NULL,
+	receiver VARCHAR(17) NOT NULL,
 	bytes DECIMAL(38, 0) NOT NULL
 );
 LOAD DATA INFILE '/data/send-receive.csv' INTO TABLE `send-receive`
@@ -37,7 +37,7 @@ LOAD DATA INFILE '/data/services.csv' INTO TABLE `services`
     LINES TERMINATED BY '\n'
     IGNORE 1 ROWS;
 CREATE TABLE users (
-	username VARCHAR(16) NOT NULL
+	username VARCHAR(17) NOT NULL
 );
 LOAD DATA INFILE '/data/users.csv' INTO TABLE `users`
     FIELDS TERMINATED BY ','
