@@ -21,13 +21,14 @@ export MY_ENV
 env: .env
 	echo "Create .env"
 	echo "$$MY_ENV" | op inject -f > .env
-data: env
-	python init-data.py
-sql: data
+csv: env
+	echo "Create csv"
+	python init-csv.py
+sql: csv
 	./init-sql.sh
 up: sql
 	echo "Powering up"
-	./start-environment.sh
+	./up.sh
 down:
 	echo "Powering down"
 	docker compose down
