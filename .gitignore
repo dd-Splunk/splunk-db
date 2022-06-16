@@ -162,6 +162,7 @@ cython_debug/
 # MacOS
 .DS_Store
 .env
+.vscode/
 # Splunk
 *.spl
 # Generated Data
