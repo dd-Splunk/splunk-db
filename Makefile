@@ -6,10 +6,10 @@ env: .env
 	SPL_P=Splunk4Me SQL_P=`openssl rand -base64 32` SQL_RP=`openssl rand -base64 32` envsubst < tpl.env | op inject -f > .env
 csv: env
 	echo "Create csv"
-	source .venv/bin/activate
-	python init-csv.py
+	source .venv/bin/activate && python init-csv.py
+
 sql: csv
-	./init-sql.sh
+	source .venv/bin/activate && ./init-sql.sh
 up: sql
 	echo "Powering up"
 	./up.sh
