@@ -1,28 +1,12 @@
 .SILENT:
-
-define MY_ENV
-# Splunk stuff
-SPLUNK_HOST=localhost
-SPLUNK_PASSWORD=Splunk4Me
-#
-# User Credentials retrieved from 1Password under the splunk.okta.com key
-#
-SPLUNKBASE_USERNAME={{op://Splunk/splunk.okta.com/username}}@splunk.com
-SPLUNKBASE_PASSWORD={{op://Splunk/splunk.okta.com/password}}
-# MySQL stuff
-DATA_DIR=./data
-MYSQL_DATABASE=splunkdb
-MYSQL_USER=splunk
-MYSQL_PASSWORD=splunk
-MYSQL_ROOT_PASSWORD=mysql-password
-endef
-export MY_ENV
+SHELL = bash
 
 env: .env
-	echo "Create .env"
-	echo "$$MY_ENV" | op inject -f > .env
+	echo "Create env from template"
+	SPL_P=Splunk4Me SQL_P=`openssl rand -base64 32` SQL_RP=`openssl rand -base64 32` envsubst < tpl.env | op inject -f > .env
 csv: env
 	echo "Create csv"
+	source .venv/bin/activate
 	python init-csv.py
 sql: csv
 	./init-sql.sh
