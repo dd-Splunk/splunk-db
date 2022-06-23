@@ -14,3 +14,7 @@
   - create identity
   - create DB connection to MySQL DB server
 7. Enjoy
+
+## To Do
+
+- [ ] Group generated content in one dir to avoid pushing to Git
