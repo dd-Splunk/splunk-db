@@ -38,7 +38,7 @@ services:
       - my-db:/var/lib/mysql
       - ${INIT_DIR}:/docker-entrypoint-initdb.d
       - ${DATA_DIR}:/data
-      - ./mysql-conf:/etc/mysql/conf.d
+      - ${CONF_DIR}:/etc/mysql/conf.d
 
 volumes:
   so1-var:
