@@ -11,6 +11,7 @@ services:
       - SPLUNKBASE_PASSWORD
       - SPLUNK_PASSWORD
       - JAVA_VERSION=openjdk:8
+      - TZ=${TZ}
     ports:
       - 8000:8000
       - 8089:8089
@@ -33,6 +34,7 @@ services:
       MYSQL_PASSWORD: ${DB_PASSWORD}
       # Password for root access
       MYSQL_RANDOM_ROOT_PASSWORD: yes
+      TZ: ${TZ}
     ports:
       - '3306:3306'
     volumes:
