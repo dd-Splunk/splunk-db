@@ -19,4 +19,7 @@
 
 - [x] Group generated content in one dir to avoid pushing to Git
 - [ ] Remove hardwired file/dirs ( like /data in Dockerfile)
-- [ ] Review DB Creation and initialization ( too complex)
+- [ ] Set timezone for both containers
+- [ ] Review DB Creation and initialization ( too complex )
+- [ ] `make up` fails as passwords are regenerated
+- [ ] Prepare for Splunk 9.x
