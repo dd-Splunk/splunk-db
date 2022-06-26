@@ -27,12 +27,12 @@ done
 # Create identity
 curl -k -s -X POST  -u admin:$SPLUNK_PASSWORD  \
 https://$SPLUNK_HOST:8089/servicesNS/nobody/splunk_app_db_connect/db_connect/dbxproxy/identities \
--d "{\"name\":\"$MYSQL_USER\",\"username\":\"$MYSQL_USER\",\"password\":\"$MYSQL_PASSWORD\"}"
+-d "{\"name\":\"$DB_USER\",\"username\":\"$DB_USER\",\"password\":\"$DB_PASSWORD\"}"
 echo ""
 # Create a connection
 curl -k -s -X POST  -u admin:$SPLUNK_PASSWORD \
 https://$SPLUNK_HOST:8089/servicesNS/nobody/splunk_app_db_connect/db_connect/dbxproxy/connections \
--d "{\"name\":\"$MYSQL_DATABASE\", \"connection_type\":\"mysql\",  \
-\"host\":\"db\", \"database\":\"$MYSQL_DATABASE\", \"identity\":\"$MYSQL_USER\", \
+-d "{\"name\":\"$DB_NAME\", \"connection_type\":\"mysql\",  \
+\"host\":\"db\", \"database\":\"$DB_NAME\", \"identity\":\"$DB_USER\", \
 \"port\":\"3306\", \"timezone\":\"Europe/Brussels\"}"
 echo ""

@@ -26,11 +26,11 @@ services:
     restart: always
     command: --tls_version=TLSv1.2
     environment:
-      MYSQL_DATABASE:
+      MYSQL_DATABASE: ${DB_NAME}
       # So you don't have to use root, but you can if you like
-      MYSQL_USER:
+      MYSQL_USER: ${DB_USER}
       # You can use whatever password you like
-      MYSQL_PASSWORD:
+      MYSQL_PASSWORD: ${DB_PASSWORD}
       # Password for root access
       MYSQL_RANDOM_ROOT_PASSWORD: yes
     ports:

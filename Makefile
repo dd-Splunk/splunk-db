@@ -3,7 +3,7 @@ SHELL = bash
 
 env: .env
 	echo "Create env from template"
-	SPL_P=Splunk4Me SQL_P=`openssl rand -base64 16` envsubst < tpl.env | op inject -f > .env
+	SPL_P=Splunk4Me DB_P=`openssl rand -base64 16` envsubst < tpl.env | op inject -f > .env
 
 csv: env
 	echo "Create csv with demo data"
