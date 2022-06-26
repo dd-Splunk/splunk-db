@@ -6,7 +6,7 @@ from dotenv import load_dotenv
 from random_username.generate import generate_username
 
 load_dotenv()
-data_dir = os.getenv("DATA_DIR")
+data_dir = "." + os.getenv("CSV_DIR")
 
 filename = data_dir + "/services.csv"
 header = ["service_name"]

@@ -166,5 +166,5 @@ cython_debug/
 # Splunk
 *.spl
 # Generated Data
-data/*.csv
+csv/*.csv
 *.sql

@@ -24,7 +24,7 @@ services:
   db:
     image: mysql:5.7
     restart: always
-    command: --tls_version=TLSv1.2 --secure_file_priv=/data
+    command: --tls_version=TLSv1.2
     environment:
       MYSQL_DATABASE:
       # So you don't have to use root, but you can if you like
@@ -32,16 +32,15 @@ services:
       # You can use whatever password you like
       MYSQL_PASSWORD:
       # Password for root access
-      MYSQL_ROOT_PASSWORD:
+      MYSQL_RANDOM_ROOT_PASSWORD: yes
     ports:
       - '3306:3306'
     volumes:
-      - my-db:/var/lib/mysql
-      - ${INIT_DIR}:/docker-entrypoint-initdb.d
-      - ${DATA_DIR}:/data
+      - db-data:/var/lib/mysql
+      - .${INIT_DIR}:/docker-entrypoint-initdb.d
+      - .${CSV_DIR}:${CSV_DIR}
 
 volumes:
   so1-var:
   so1-etc:
-  ms-data:
-  my-db:
+  db-data:
