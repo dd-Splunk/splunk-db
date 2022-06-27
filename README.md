@@ -22,4 +22,4 @@
 - [x] Set timezone for both containers
 - [ ] Review DB Creation and initialization ( too complex )
 - [ ] `make up` fails as passwords are regenerated
-- [ ] Prepare for Splunk 9.x
+- [x] Prepare for Splunk 9.x ( dbxquery is still flagged risky )
