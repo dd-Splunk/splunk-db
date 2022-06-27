@@ -1,10 +1,10 @@
 [app/ui]
-version = 8.2.5
-modtime = 1654157055.951176000
+version = 8.2.6
+modtime = 1656323507.856222000
 
 [app/launcher]
-version = 8.2.5
-modtime = 1654157055.952610000
+version = 8.2.6
+modtime = 1656323507.858846000
 
 [lookups/dc.csv]
 access = read : [ * ], write : [ admin ]
@@ -29,8 +29,8 @@ modtime = 1654157608.374273000
 
 [views/databases__queues]
 owner = admin
-version = 8.2.5
-modtime = 1654352232.523062000
+version = 8.2.6
+modtime = 1656324290.078194000
 
 [lookups/dc-svc.csv]
 access = read : [ * ], write : [ admin ]
@@ -43,8 +43,8 @@ modtime = 1654159421.806956000
 access = read : [ * ], write : [ admin, power ]
 export = none
 owner = admin
-version = 8.2.5
-modtime = 1654352053.216160000
+version = 8.2.6
+modtime = 1656324311.413451000
 
 [lookups/send-receive.csv]
 access = read : [ * ], write : [ admin ]
@@ -61,5 +61,9 @@ version = 8.2.5
 modtime = 1654168336.129465000
 
 [app/install/install_source_checksum]
-version = 8.2.5
-modtime = 1654350281.777149000
+version = 8.2.6
+modtime = 1656322373.341642000
+
+[app/package/check_for_updates]
+version = 8.2.6
+modtime = 1656323507.860054000
