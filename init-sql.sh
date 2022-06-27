@@ -16,7 +16,7 @@ EOF
 
 for f in `ls .$CSV_DIR/*.csv`;
 do
-    csvsql -i mysql -d ',' $f >> $SQL
+    csvsql -i mysql -d ','  --snifflimit 0 $f >> $SQL
     table=${f##*/}
     table=${table%.csv}
     echo "LOAD DATA LOCAL INFILE '${f:1}' INTO TABLE \`$table\`
