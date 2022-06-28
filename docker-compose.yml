@@ -2,6 +2,8 @@ version: "3.6"
 
 services:
   so1:
+    networks:
+      splunknet:
     image: splunk/splunk:${SPLUNK_IMAGE:-latest}
     container_name: so1
     environment:
@@ -23,6 +25,8 @@ services:
     restart: always
 
   db:
+    networks:
+      splunknet:
     image: mysql:5.7
     restart: always
     command: --tls_version=TLSv1.2
@@ -41,6 +45,11 @@ services:
       - db-data:/var/lib/mysql
       - .${INIT_DIR}:/docker-entrypoint-initdb.d
       - .${CSV_DIR}:${CSV_DIR}
+
+networks:
+  splunknet:
+    driver: bridge
+    attachable: true
 
 volumes:
   so1-var:
