@@ -9,6 +9,7 @@ echo "Downloading ${APP_FILE} ..."
 docker cp so1:$APP_LOCATION .
 echo "Expanding ${APP_FILE} ..."
 tar  -C app/ -xf ${APP_FILE} --strip 1
+# Remove lookup editor backups
 rm -rf app/lookups/lookup_file_backups
 rm ${APP_FILE}
 echo "Done."
