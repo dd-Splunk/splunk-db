@@ -1,0 +1,53 @@
+<dashboard version="1.1">
+  <label>Databases - Queues</label>
+  <row>
+    <panel>
+      <table>
+        <title>Host Status</title>
+        <search>
+          <query>| dbxquery query="SELECT * FROM `splunkdb`.`webmail`" connection="splunkdb"</query>
+          <earliest>-24h@h</earliest>
+          <latest>now</latest>
+          <sampleRatio>1</sampleRatio>
+        </search>
+        <option name="count">20</option>
+        <option name="dataOverlayMode">none</option>
+        <option name="drilldown">none</option>
+        <option name="percentagesRow">false</option>
+        <option name="refresh.display">progressbar</option>
+        <option name="rowNumbers">false</option>
+        <option name="totalsRow">false</option>
+        <option name="wrap">true</option>
+        <format type="color" field="status">
+          <colorPalette type="map">{"ok":#53A051,"no":#DC4E41}</colorPalette>
+        </format>
+      </table>
+    </panel>
+  </row>
+  <row>
+    <panel>
+      <viz type="punchcard_app.punchcard">
+        <title>Host - Service Errors</title>
+        <search>
+          <query>| dbxquery query="SELECT * FROM `splunkdb`.`dc-svc`" connection="splunkdb" | eval is_nok = if(status="no", 1, 0)  | fields host, app, is_nok, status</query>
+          <earliest>-24h@h</earliest>
+          <latest>now</latest>
+          <sampleRatio>1</sampleRatio>
+        </search>
+        <option name="drilldown">none</option>
+        <option name="height">448</option>
+        <option name="punchcard_app.punchcard.colorMode">categorical</option>
+        <option name="punchcard_app.punchcard.labelRotation">angle</option>
+        <option name="punchcard_app.punchcard.maxColor">#dc4e41</option>
+        <option name="punchcard_app.punchcard.minColor">#53a051</option>
+        <option name="punchcard_app.punchcard.numOfBins">3</option>
+        <option name="punchcard_app.punchcard.radiusScale">local</option>
+        <option name="punchcard_app.punchcard.useColors">false</option>
+        <option name="refresh.display">progressbar</option>
+        <option name="trellis.enabled">0</option>
+        <option name="trellis.scales.shared">1</option>
+        <option name="trellis.size">medium</option>
+      </viz>
+    </panel>
+  </row>
+</dashboard>
