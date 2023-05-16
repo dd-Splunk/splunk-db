@@ -37,3 +37,9 @@ https://$SPLUNK_HOST:8089/servicesNS/nobody/splunk_app_db_connect/db_connect/dbx
 \"host\":\"db\", \"database\":\"$DB_NAME\", \"identity\":\"$DB_USER\", \
 \"port\":\"3306\", \"timezone\":\"$TZ\"}"
 echo ""
+
+# Splunk 9.x and above, disable "risky warning" for dbxquery
+curl -k -s -X POST  -u admin:$SPLUNK_PASSWORD \
+https://$SPLUNK_HOST:8089/servicesNS/nobody/splunk_app_db_connect/configs/conf-commands/dbxquery \
+--header 'Content-Type: application/x-www-form-urlencoded' \
+--data-urlencode 'is_risky=false'
