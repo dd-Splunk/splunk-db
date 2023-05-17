@@ -30,9 +30,6 @@ services:
       splunknet:
     image: mysql:latest
     restart: always
-    command: 
-      - --tls_version=TLSv1.2
-      - --local-infile=1
     environment:
       MYSQL_DATABASE: ${DB_NAME}
       # So you don't have to use root, but you can if you like
