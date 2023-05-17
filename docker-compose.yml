@@ -30,7 +30,9 @@ services:
       splunknet:
     image: mysql:latest
     restart: always
-    command: --tls_version=TLSv1.2
+    command: 
+      - --tls_version=TLSv1.2
+      - --local-infile=1
     environment:
       MYSQL_DATABASE: ${DB_NAME}
       # So you don't have to use root, but you can if you like
@@ -46,6 +48,8 @@ services:
       - db-data:/var/lib/mysql
       - .${INIT_DIR}:/docker-entrypoint-initdb.d
       - .${CSV_DIR}:${CSV_DIR}
+      - .${CONF_DIR}:/etc${CONF_DIR} # config mysql server
+
 
 networks:
   splunknet:
