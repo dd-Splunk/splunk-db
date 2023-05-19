@@ -14,14 +14,11 @@ GRANT ALL PRIVILEGES ON $DB_NAME.* TO '$DB_USER'@'%';
 #
 EOF
 
-for f in `ls .$CSV_DIR/*.csv`;
-do
-    csvsql -i mysql -d ','  --snifflimit 0 $f >> $SQL
-    table=${f##*/}
-    table=${table%.csv}
-    echo "LOAD DATA LOCAL INFILE '${f:1}' INTO TABLE \`$table\`
-    FIELDS TERMINATED BY ','
-    ENCLOSED BY '\"'
-    LINES TERMINATED BY '\\n'
-    IGNORE 1 ROWS;" >> $SQL
-done
+# create send-receive table
+curl -s "https://api.mockaroo.com/api/11161890?count=100&key=b45bad30" >> $SQL
+# create webmail
+curl -s "https://api.mockaroo.com/api/8a62a1c0?count=11&key=b45bad30" >> $SQL
+# create dc-svc
+curl -s "https://api.mockaroo.com/api/b0d1d6a0?count=190&key=b45bad30" >> $SQL
+# sanitize table names
+sed -i '' -E 's/(table|into) ([a-z]+-[a-z]+) /\1 \`\2` /g' $SQL

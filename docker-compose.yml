@@ -44,9 +44,6 @@ services:
     volumes:
       - db-data:/var/lib/mysql
       - .${INIT_DIR}:/docker-entrypoint-initdb.d
-      - .${CSV_DIR}:${CSV_DIR}
-      - .${CONF_DIR}:/etc${CONF_DIR} # config mysql server
-
 
 networks:
   splunknet:

@@ -7,14 +7,9 @@ SHELL = bash
 
 env: .env
 
-
-csv: env
-	echo "Create csv with demo data"
-	source .venv/bin/activate && python init-csv.py
-
-sql: csv
+sql: env
 	echo "Create SQL initialization files"
-	source .venv/bin/activate && ./init-sql.sh
+	./init-sql.sh
 
 up: sql
 	echo "Powering up"
